@@ -1,0 +1,43 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
+$color-main : #0fcfe7;
+$color-text : #1cc7c1;
+
+.btn-main{
+    color: white;
+    background: linear-gradient(75deg , #19D3AE , $color-main );
+    text-transform: uppercase;
+}
+@mixin backprop {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.header-container {
+    height:100vh;
+    background-image: linear-gradient(45deg , rgba(255, 255, 255, 0.7) 55% , #3a4256 45%), url(./images/banner.png);
+    @include backprop;
+    h1{
+        font-family: 'Poppins', sans-serif;
+    }
+}
+.navbar-light .navbar-nav .nav-link  {
+    letter-spacing: 3px;
+    color: #fff;
+    transition: all .5s ease;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color:$color-text !important;
+}
+.shedule{
+    text-align:center;
+    box-shadow: 3px 3px 10px lightgray;
+    h3{
+        color:$color-text;
+    }
+    p{
+        color: gray;
+    }
+}
