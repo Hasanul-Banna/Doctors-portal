@@ -25,13 +25,13 @@ export const BookingData = [
     },
     {
         id: 5,
-        service: 'Teeth Orthodontics',
+        service: 'Teeth Repairing',
         visitingHour: '8:00 AM - 9:00 AM',
         totalSpace: 10
     },
     {
         id: 6,
-        service: 'Teeth Orthodontics',
+        service: 'Dental Implant',
         visitingHour: '8:00 AM - 9:00 AM',
         totalSpace: 10
     }

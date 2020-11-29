@@ -1,10 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-
 $color-main : #0fcfe7;
 $color-text : #1cc7c1;
-
+.theme-text{
+    color:$color-text;
+}
+.text-dark{
+    color: #3a4256 !important;
+}
 .btn-main{
     color: white;
     background: linear-gradient(75deg , #19D3AE , $color-main );
@@ -23,14 +27,49 @@ $color-text : #1cc7c1;
         font-family: 'Poppins', sans-serif;
     }
 }
-.navbar-light .navbar-nav .nav-link  {
+#review{
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-image: url(./images/quote.png);
+
+}
+#Contact{
+    color: white;
+    margin-top: 100px;
+    background-image: linear-gradient(45deg , #3a4256c5 55% , #3a4256ea 45%), url(./images/banner2.png);
+    @include backprop;
+}
+#dentist{
+    margin-top: 200px;
+    height:400px;
+    background-image: linear-gradient(45deg , #3a4256d7 55% , #3a4256d7 45%), url(./images/banner2.png);
+    @include backprop;
+}
+.navilink {
     letter-spacing: 3px;
     color: #fff;
     transition: all .5s ease;
+    text-decoration: none;
 }
-.navbar-light .navbar-nav .nav-link:hover {
+.navilink:hover {
     color:$color-text !important;
 }
+.Home-icon{
+    text-align: center;
+    background: linear-gradient(to right , #19D3AE , $color-main );
+    transition: all .3s ease;
+    border-radius: 5px;
+    display: flex;
+    color:white;
+    span  {
+        font-weight: 600;
+        font-size: 25px;
+        }
+    }
+    .Home-icon:hover{
+        background: linear-gradient(to right , $color-main , #19D3AE );
+
+    }
 .shedule{
     text-align:center;
     box-shadow: 3px 3px 10px lightgray;
@@ -39,5 +78,58 @@ $color-text : #1cc7c1;
     }
     p{
         color: gray;
+    }
+}
+.react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus , .react-calendar__tile--active{
+    border-radius: 5px;
+    background-color: $color-text !important;
+}
+.react-calendar{
+    border: none !important;
+    font-family: 'Poppins', sans-serif;
+    }
+.sidebar{
+    background: linear-gradient(to bottom , #19D3AE , $color-main );
+    color:white; 
+    min-height:100vh;
+    text-decoration:none !important ;
+}
+#or {
+    text-align: center;
+    position: relative;
+}
+#or::before{
+    content: '';
+    position: absolute;
+    width: 45%;
+    height: 2px;
+    bottom: 40%;
+    left: 0%;
+    background: gray;
+}
+#or::after{
+    content: '';
+    position: absolute;
+    width: 45%;
+    height: 2px;
+    bottom: 40%;
+    right: 0%;
+    background: gray;
+}
+footer{
+    background-image: url(./images/footer-bg.png);
+    @include backprop;
+    ul {
+        padding: 0;
+        list-style-type: none;
+    }
+    .fontawsome{
+        color:$color-text;
+        font-size:40px;
+        margin: 10px;
+        transition: transform .8s ease-in-out;
+    }
+    .fontawsome:hover{
+        transform: rotate(360deg);    
     }
 }
