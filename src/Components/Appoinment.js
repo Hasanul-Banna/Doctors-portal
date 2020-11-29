@@ -15,10 +15,10 @@ const Appoinment = () => {
 
     return (
         <>
-            <Navibar />
             <div className="header-container ">
                 < div className="container " >
-                    <div style={{ height: "100vh" }} className="row d-flex align-content-center">
+                    <Navibar />
+                    <div style={{ height: "80vh" }} className="row d-flex align-content-center">
                         <div className="col-md-5">
                             <h2 className="text-dark">Select Appoinment Date</h2>
                             <Calendar onChange={handleDate} value={selectedDate} />

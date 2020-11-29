@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import banner from '../images/banner.png';
 import { Link } from 'react-router-dom';
 import Navibar from './Navibar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faMapMarkerAlt, faPhoneVolume, faCopyright } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faMapMarkerAlt, faPhoneVolume, faCopyright, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import service1 from '../images/icon1.png';
 import service2 from '../images/icon2.png';
 import service3 from '../images/icon3.png';
@@ -14,14 +14,26 @@ import { faFacebookSquare, faInstagramSquare, faTwitterSquare, faYoutubeSquare }
 
 
 const Home = () => {
+    const [doctor, setDoctor] = useState([]);
+
+    fetch('http://localhost:5000/doctors', {
+        method: 'GET',
+        headers: { 'content-type': 'application/json' }
+    })
+        .then(res => res.json())
+        .then(data => {
+            setDoctor(data)
+        })
+
+
     return (
         <>
-            <Navibar />
-            <div className="header-container ">
-                < div className="container " >
-                    <div style={{ height: "100vh" }} className="row d-flex align-content-center">
+
+            <div className="header-container">
+                < div className="container " ><Navibar />
+                    <div style={{ height: "80vh" }} className="row d-flex align-content-center">
                         <div className="col-md-5">
-                        <br /><br />
+                            <br /><br />
                             <h1>Your New Smile <br /> Starts Here</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus facere aliquid quo itaque repellat voluptatem quidem, ipsum illo, ratione doloribus modi? Tempore dolorum quas rem?</p>
                             <Link to="/appoinment" className="btn btn-main">Get Appoinment</Link>
@@ -173,13 +185,24 @@ const Home = () => {
                 </div>
             </section>
 
-<section>
-    <div className="container">
-        <div className="row">
-
-        </div>
-    </div>
-</section>
+            <section>
+                <div className="container my-5">
+                    <h2 className="theme-text text-center">Our Doctors</h2>
+                    <div className="row">
+                        {
+                            doctor.map(x => {
+                                return (
+                                    <div key={x._id} className="col-md-4 text-center pt-3">
+                                        <img style={{ height: '300px' }} src={`http://localhost:5000/${x.image}`} alt="" />
+                                        <h5>{x.name}</h5>
+                                        <p><FontAwesomeIcon className="theme-text " icon={faEnvelope} /> {x.email}</p>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </section>
 
             <section id="Contact">
                 <div className="container p-5">
@@ -188,15 +211,15 @@ const Home = () => {
                     </div>
                     <form>
                         <div className="form-group">
-                            <label htmlfor="name">Your Name</label>
+                            <label htmlFor="name">Your Name</label>
                             <input type="name" className="form-control" id="name" placeholder="Your Name" />
                         </div>
                         <div className="form-group">
-                            <label htmlfor="phone">Contact Number</label>
+                            <label htmlFor="phone">Contact Number</label>
                             <input type="text" className="form-control" id="phone" placeholder="Your Phone Number" />
                         </div>
                         <div className="form-group">
-                            <label htmlfor="exampleFormControlTextarea1">Message</label>
+                            <label htmlFor="exampleFormControlTextarea1">Message</label>
                             <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Your message Here..."></textarea>
                         </div>
                         <button className="btn btn-main">Submit</button>

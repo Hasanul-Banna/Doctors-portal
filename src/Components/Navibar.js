@@ -8,8 +8,8 @@ const Navibar = () => {
     const [loggedInUser, setloggedInUser] = useContext(UserContext);
 
     return (
-        <Navbar className="fixed-top container " bg="transparent" expand="lg">
-            <Navbar.Brand to="/"><img className="w-25" src={logo} alt="Logo" /></Navbar.Brand>
+        <Navbar bg="transparent" variant="dark">
+            <Navbar.Brand to="/"><img alt="logo" src={logo} width="40" className="d-inline-block align-top" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto ">

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+// import { UserContext } from '../../App';
+
 const AppoinmentsByDate = () => {
+    // const [loggedInUser, setloggedInUser] = useContext(UserContext);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [Appointment, setAppointment] = useState([]);
 
